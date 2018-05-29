@@ -7,7 +7,17 @@ DBNAME = "news"
 
 def get_pop_articles():
     """Returns the three articles with the highest number of views."""
-    pass
+    db = psycopg2.connect(database=DBNAME)
+    c = db.cursor()
+    c.execute("select title, count(*) as views
+                    from articles join log
+                    on '/article/' || articles.slug = log.path
+                    group by title
+                    order by views desc
+                    limit 3;")
+    top_articles = c.fetchall()
+    db.close()
+    return top_articles
 
 
 def get_pop_authors():
