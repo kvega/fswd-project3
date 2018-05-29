@@ -22,7 +22,14 @@ def get_pop_articles():
 
 def get_pop_authors():
     """Return the three authors with the highest number of views."""
-    pass
+    db = psycopg2.connect(database=DBNAME)
+    c = db.cursor()
+    c.execute("select name, views
+                    from authors join topauthors
+                    on authors.id = topauthors.author;")
+    top_authors = c.fetchall()
+    db.close()
+    return top_authors
 
 
 def get_error_days():
