@@ -37,11 +37,11 @@ def get_error_days():
     errors"""
     db = psycopg2.connect(database=DBNAME)
     c = db.cursor()
-    c.execute("select succesful.date, success, failure, " +
+    c.execute("select successful.date, success, failure, " +
         "((cast (failure as decimal) / success) * 100) as percent " +
         "from successful join failures " +
         "on successful.date = failures.date " +
-        "where ((cast (failure as decimal) / success) * 100 > 1;")
+        "where ((cast (failure as decimal) / success) * 100) > 1;")
     high_errors = c.fetchall()
     db.close()
     return high_errors
