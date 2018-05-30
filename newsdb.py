@@ -35,4 +35,15 @@ def get_pop_authors():
 def get_error_days():
     """Returns the dates of days on which more than 1% of requests lead to 
     errors"""
-    pass
+    db = psycopg2.connect(database=DBNAME)
+    c = db.cursor()
+    c.execute("select succesful.date, success, failure, " +
+        "((cast (failure as decimal) / success) * 100) as percent " +
+        "from successful join failures " +
+        "on successful.date = failures.date " +
+        "where ((cast (failure as decimal) / success) * 100 > 1;")
+    high_errors = c.fetchall()
+    db.close()
+    return high_errors
+
+
