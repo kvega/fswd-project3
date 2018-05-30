@@ -12,3 +12,25 @@ create view topauthors as
     order by views desc
     limit 3;
 ```
+
+## Query to run in order to create the `successful` view.
+
+```postgresql
+create view successful as
+    select cast (time as date) as date, count(*) as success
+    from log
+    where status like '%200%'
+    group by date;
+```
+
+## Query to run inorder to create the `failures` view.
+
+```postgresql
+create view failures as
+    select cast (time as date) as date, count(*) as failure
+    from log
+    where status not like '%200%'
+    group by date;
+```
+
+
