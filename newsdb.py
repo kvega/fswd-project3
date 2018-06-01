@@ -18,7 +18,7 @@ def get_pop_articles():
     db.close()
 
     for article in top_articles:
-        print(article[0] + " ---- " + str(article[1]))
+        print(article[0] + " ---- " + str(article[1]) + " views")
     
     return top_articles
 
@@ -32,6 +32,10 @@ def get_pop_authors():
         "on authors.id = topauthors.author;")
     top_authors = c.fetchall()
     db.close()
+
+    for author in top_authors:
+        print(author[0] + " ---- " + str(author[1]))
+
     return top_authors
 
 
