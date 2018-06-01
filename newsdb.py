@@ -21,8 +21,6 @@ def get_pop_articles():
     for article in top_articles:
         print(article[0] + " ---- " + str(article[1]) + " views")
     
-    return top_articles
-
 
 def get_pop_authors():
     """Return the three authors with the highest number of views."""
@@ -36,8 +34,6 @@ def get_pop_authors():
 
     for author in top_authors:
         print(author[0] + " ---- " + str(author[1]) + " views")
-
-    return top_authors
 
 
 def get_error_days():
@@ -58,5 +54,4 @@ def get_error_days():
         fdt = error[0].strftime('%B %d, %Y')
         print(fdt + ' ---- ' + str(round(error[3], 1)) + '%')
 
-    return high_errors
 
