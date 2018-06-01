@@ -68,8 +68,8 @@ def exit():
 def main():
     print("Welcome to Log Analysis!\n")
     while True:
-        opt = int(
-            input(
+        try:
+            opt = int( input(
                 "Please select one of the following options:\n" +
                 " 1 - Get list of the top three most viewed articles\n" +
                 " 2 - Get list of authors sorted by popularity\n" +
@@ -77,9 +77,13 @@ def main():
                 " errors\n" +
                 " 4 - Exit the program\n\n" +
                 "===> "))
+            if opt not in [1, 2, 3, 4]:
+                print("Invalid option! Please enter a valid option.")
+                continue
 
-        if not isinstance(opt, int) or opt not in [1, 2, 3, 4]:
+        except ValueError:
             print("Invalid option! Please enter a valid option.")
+            continue
 
         options = {1: get_pop_articles,
                    2: get_pop_authors,
