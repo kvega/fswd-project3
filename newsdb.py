@@ -2,6 +2,7 @@
 
 import psycopg2
 import datetime
+import sys
 
 DBNAME = "news"
 
@@ -57,6 +58,11 @@ def get_error_days():
     print("\n")        
 
 
+def exit():
+	print("Thank you!\n")
+	sys.exit()
+	
+
 def main():
 	print("Welcome to Log Analysis!\n")
 	while True:
@@ -72,10 +78,13 @@ def main():
     
 		options = {1: get_pop_articles,
                	   2: get_pop_authors,
-               	   3: get_error_days}
+               	   3: get_error_days,
+               	   4: exit}
                
 		options[opt]()
 	
 	
 if __name__ == '__main__':
     main()
+    
+
