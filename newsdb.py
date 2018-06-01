@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import psycopg2
+import datetime
 
 DBNAME = "news"
 
@@ -34,7 +35,7 @@ def get_pop_authors():
     db.close()
 
     for author in top_authors:
-        print(author[0] + " ---- " + str(author[1]))
+        print(author[0] + " ---- " + str(author[1]) + " views")
 
     return top_authors
 
@@ -51,6 +52,12 @@ def get_error_days():
         "where ((cast (failure as decimal) / success) * 100) > 1;")
     high_errors = c.fetchall()
     db.close()
+
+    for error in high_errors:
+        # Extract date to format it
+        fdt = error[0].strftime('%B %d, %Y')
+        print(fdt + ' ---- ' + str(round(error[3])) + '%')
+
     return high_errors
 
 
