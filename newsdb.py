@@ -16,6 +16,10 @@ def get_pop_articles():
         "limit 3;")
     top_articles = c.fetchall()
     db.close()
+
+    for article in top_articles:
+        print(article[0] + " ---- " + str(article[1]))
+    
     return top_articles
 
 
