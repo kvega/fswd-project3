@@ -56,8 +56,7 @@ def get_error_days():
     for error in high_errors:
         # Extract date to format it
         fdt = error[0].strftime('%B %d, %Y')
-        print(fdt + ' ---- ' + str(round(error[3])) + '%')
+        print(fdt + ' ---- ' + str(round(error[3], 1)) + '%')
 
     return high_errors
-
 
