@@ -55,3 +55,20 @@ def get_error_days():
         print(fdt + ' ---- ' + str(round(error[3], 1)) + '%')
 
 
+if __name__ == '__main__':
+    print("Welcome to Log Analysis!")
+    opt = int(input("Please select one of the following options:\n" +
+        " 1 - Get list of the top three most viewed articles\n" +
+        " 2 - Get list of authors sorted by popularity\n" +
+        " 3 - Check days on which more than 1% of requests lead to errors\n" +
+        " 4 - Exit the program\n\n" +
+        "===>"))
+
+    if type(opt) != int or opt not in [1,2,3,4]:
+        print("Invalid option! Please enter a valid option.")
+    
+    options = {1: get_pop_articles,
+               2: get_pop_authors,
+               3: get_error_days,
+               }
+    options[opt]()
