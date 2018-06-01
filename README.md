@@ -10,7 +10,6 @@ create view topauthors as
     where log.status like '%200%'
     group by author
     order by views desc
-    limit 3;
 ```
 
 ## Query to run in order to create the `successful` view.
