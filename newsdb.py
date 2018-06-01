@@ -55,6 +55,10 @@ def get_error_days():
         print(fdt + ' ---- ' + str(round(error[3], 1)) + '%')
 
 
+def __exit():
+	break
+	
+	
 if __name__ == '__main__':
     print("Welcome to Log Analysis!")
     opt = int(input("Please select one of the following options:\n" +
@@ -70,5 +74,5 @@ if __name__ == '__main__':
     options = {1: get_pop_articles,
                2: get_pop_authors,
                3: get_error_days,
-               }
+               4: __exit}
     options[opt]()
