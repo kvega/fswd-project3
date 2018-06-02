@@ -9,7 +9,7 @@ create view topauthors as
     on '/article/' || articles.slug = log.path
     where log.status like '%200%'
     group by author
-    order by views desc
+    order by views desc;
 ```
 
 ## Query to run in order to create the `successful` view.
