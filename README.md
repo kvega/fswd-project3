@@ -2,7 +2,7 @@
 
 ## Query to run in order to create the `topauthors` view.
 
-```postgresql
+```sql
 create view topauthors as
     select author, count(*) as views
     from articles join log
@@ -14,7 +14,7 @@ create view topauthors as
 
 ## Query to run in order to create the `successful` view.
 
-```postgresql
+```sql
 create view successful as
     select cast (time as date) as date, count(*) as success
     from log
@@ -24,7 +24,7 @@ create view successful as
 
 ## Query to run inorder to create the `failures` view.
 
-```postgresql
+```sql
 create view failures as
     select cast (time as date) as date, count(*) as failure
     from log
