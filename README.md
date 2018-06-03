@@ -16,7 +16,12 @@
     * `cd` to `vagrant` directory and use the command `psql -d news -f newsdata.sql` to setup database.
 
 
-## Query to run in order to create the `topauthors` view.
+## Data Preparation
+* Run `psql news` to access database
+
+### Run the following commands to create the necessary views
+
+#### Query to run in order to create the `topauthors` view.
 
 ```sql
 create view topauthors as
@@ -28,7 +33,7 @@ create view topauthors as
     order by views desc;
 ```
 
-## Query to run in order to create the `successful` view.
+#### Query to run in order to create the `successful` view.
 
 ```sql
 create view successful as
@@ -38,7 +43,7 @@ create view successful as
     group by date;
 ```
 
-## Query to run inorder to create the `failures` view.
+#### Query to run inorder to create the `failures` view.
 
 ```sql
 create view failures as
