@@ -54,3 +54,22 @@ create view failures as
 ```
 
 
+## Running the Program
+* Access project directory on host system and run `vagrant up` to start the VM
+* Use `vagrant ssh` to access the guest system
+* `cd` into `/vagrant/(project dir)` on the guest
+* Use the above `psql` commands to create the views
+* (optional) `chmod +x newsdb.py` to make program executable
+* Otherwise, use `python3 newsdb.py` to start
+    * Successful initiation of program will present the following:
+    ```
+    Welcome to Log Analysis!
+
+    Please select one of the following options:
+    1 - Get list of the top three most viewed articles
+    2 - Get list of authors sorted by popularity
+    3 - Check days on which more than 1% of requests lead to errors
+    4 - Exit the program
+    ```
+
+Enjoy!
