@@ -1,5 +1,11 @@
 # Logs Analysis
 
+## Prerequisites
+* Python 3
+* `psycopg2`
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* [Vagrant](https://www.vagrantup.com/downloads.html)
+
 ## Query to run in order to create the `topauthors` view.
 
 ```sql
