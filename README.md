@@ -61,7 +61,7 @@ create view failures as
 * Use the above `psql` commands to create the views
 * (optional) `chmod +x newsdb.py` to make program executable
 * Otherwise, use `python3 newsdb.py` to start
-    * Successful initiation of program will present the following:
+    * Successful initialization of the program will present the following:
     ```
     Welcome to Log Analysis!
 
